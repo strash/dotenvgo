@@ -1,3 +1,3 @@
-module github.com/strash/dotenv_go
+module github.com/strash/dotenvgo
 
 go 1.20

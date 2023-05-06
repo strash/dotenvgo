@@ -1,4 +1,4 @@
-package dotenv
+package dotenvgo
 
 import (
 	"log"
