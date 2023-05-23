@@ -25,7 +25,7 @@ type Env struct {
 	EmailPort     int
 }
 
-func InitEnv() *Env {
+func NewEnv() *Env {
 	env := new(Env)
 	dir, err := os.Getwd()
 	if err != nil {
