@@ -81,7 +81,6 @@ func NewEnv() *Env {
 				env.Secret = trimmed
 			case "salt":
 				env.Salt = trimmed
-
 			case "email_smtp":
 				env.EmailSMTP = trimmed
 			case "email_address":
