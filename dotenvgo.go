@@ -11,6 +11,7 @@ import (
 type Env struct {
 	Env           string
 	Domain        string
+	DBHost        string
 	DB            string
 	DBUser        string
 	DBPassword    string
@@ -55,6 +56,8 @@ func NewEnv() *Env {
 				env.Domain = trimmed
 			case "db":
 				env.DB = trimmed
+			case "db_host":
+				env.DBHost = trimmed
 			case "db_user":
 				env.DBUser = trimmed
 			case "db_password":
