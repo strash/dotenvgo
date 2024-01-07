@@ -19,6 +19,7 @@ type Env struct {
 	APIHost       string
 	AuthHost      string
 	AuthClientID  string
+	AdminHost     string
 	Secret        string
 	Salt          string
 	Port          int
@@ -83,6 +84,8 @@ func NewEnv() *Env {
 				env.AuthHost = trimmed
 			case "auth_client_id":
 				env.AuthClientID = trimmed
+			case "admin_host":
+				env.AdminHost = trimmed
 			case "secret":
 				env.Secret = trimmed
 			case "salt":
