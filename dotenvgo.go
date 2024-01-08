@@ -2,6 +2,7 @@ package dotenvgo
 
 import (
 	"log"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -11,15 +12,15 @@ import (
 type Env struct {
 	Env           string
 	Domain        string
-	DBHost        string
+	DBService     string
 	DB            string
 	DBUser        string
 	DBPassword    string
 	DBPort        int
-	APIHost       string
-	AuthHost      string
+	AdminHost     *url.URL
+	APIHost       *url.URL
+	AuthHost      *url.URL
 	AuthClientID  string
-	AdminHost     string
 	Secret        string
 	Salt          string
 	Port          int
@@ -60,8 +61,8 @@ func NewEnv() *Env {
 				env.Domain = trimmed
 			case "db":
 				env.DB = trimmed
-			case "db_host":
-				env.DBHost = trimmed
+			case "db_service":
+				env.DBService = trimmed
 			case "db_user":
 				env.DBUser = trimmed
 			case "db_password":
@@ -78,14 +79,20 @@ func NewEnv() *Env {
 				} else {
 					env.DBPort = 5432
 				}
+			case "admin_host":
+				if u, err := url.Parse(trimmed); err == nil {
+					env.AdminHost = u
+				}
 			case "api_host":
-				env.APIHost = trimmed
+				if u, err := url.Parse(trimmed); err == nil {
+					env.APIHost = u
+				}
 			case "auth_host":
-				env.AuthHost = trimmed
+				if u, err := url.Parse(trimmed); err == nil {
+					env.AuthHost = u
+				}
 			case "auth_client_id":
 				env.AuthClientID = trimmed
-			case "admin_host":
-				env.AdminHost = trimmed
 			case "secret":
 				env.Secret = trimmed
 			case "salt":
