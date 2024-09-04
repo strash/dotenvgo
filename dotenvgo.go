@@ -42,7 +42,7 @@ func Load(path *string) error {
 	return nil
 }
 
-// Get returns the value for the provided variable.
+// Get returns the value for the requested variable.
 func Get(variable string) (string, error) {
 	v, ok := vars[variable]
 	if !ok {
