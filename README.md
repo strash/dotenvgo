@@ -1,13 +1,13 @@
-# Simple _.env_ Reader
+# Simple Reader for _.env_ Files
 
 ## Installation
-Run `go get github.com/strash/dotenvgo`
+Run `go get github.com/strash/dotenvgo/v2`
 
 ## Usage
 ```go
 import (
     "log"
-    env "github.com/strash/dotenvgo"
+    env "github.com/strash/dotenvgo/v2"
 )
 
 func main() {
@@ -15,7 +15,11 @@ func main() {
     path := "./some/vars/.env_dev"
 
     // Load it into memory
-    // If the path is omitted (nil), it will look for a '.env' file in the root of your project
+    // If the path is omitted (nil), it will look
+    // for a '.env' file in the root of your project.
+    //
+    // NOTE: You can load as many files as you want.
+    // The variables will be merged.
     if err := env.Load(&path); err != nil {
         log.Fatal(err.Error())
     }

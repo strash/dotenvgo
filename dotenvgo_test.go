@@ -13,6 +13,7 @@ PORT=8080
 SUPPORT_EMAIL="test@test.ok"
 LUCKY_NUMBER=420
 SALT=496d3c88-e4f5-4ff1-8eb8-e4c0a8ac12f2
+TEXT=aaa bbb CCC
 `
 	tmpFile, err := os.CreateTemp("./", ".env_testfile")
 	if err != nil {
@@ -39,6 +40,7 @@ SALT=496d3c88-e4f5-4ff1-8eb8-e4c0a8ac12f2
 		{"SUPPORT_EMAIL", "test@test.ok"},
 		{"LUCKY_NUMBER", "420"},
 		{"SALT", "496d3c88-e4f5-4ff1-8eb8-e4c0a8ac12f2"},
+		{"TEXT", "aaa bbb CCC"},
 	}
 
 	for _, test := range tests {
